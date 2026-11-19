@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-5 mb-4">
+    <div class="card">
+      <div class="card-header">Agregar curso</div>
+      <div class="card-body">
+        <form (submit)="agregarCurso($event, nombre, descripcion)">
+          <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input #nombre type="text" class="form-control" placeholder="Ej: RxJS" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Descripción</label>
+            <input #descripcion type="text" class="form-control" placeholder="Ej: Programación reactiva" />
+          </div>
+          <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-7">
+    <h2 class="h4">Cursos ({{ cursos.length }})</h2>
+    <ul class="list-group">
+      <li *ngFor="let curso of cursos" class="list-group-item">
+        <strong>{{ curso.nombre }}</strong>
+        <br />
+        <small class="text-muted">{{ curso.descripcion }}</small>
+      </li>
+    </ul>
+  </div>
+</div>
